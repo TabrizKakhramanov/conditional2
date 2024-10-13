@@ -13,26 +13,25 @@ public class Main {
 
         //2
         int clientDeviceYear = 2009;
-        if (clientOS==0){
-            if (clientDeviceYear<2015){
-                System.out.println("«Установите облегченную версию приложения для iOS по ссылке»");
-            }
-            else{
-                System.out.println("«Установите версию приложения для iOS по ссылке»");
-            }
+        if (clientOS==0&&clientDeviceYear<2015) {
+            System.out.println("«Установите облегченную версию приложения для iOS по ссылке»");
         }
-        else {
-            if (clientDeviceYear<2015){
+        else if (clientOS==0&&clientDeviceYear>=2015){
+            System.out.println("«Установите версию приложения для iOS по ссылке»");
+        }
+        else if (clientDeviceYear<2015&&clientOS==1){
                 System.out.println("«Установите облегченную версию приложения для Android по ссылке»");
-            }
-            else {
-                System.out.println("«Установите версию приложения для Android по ссылке»");
-            }
+        }
+        else if (clientDeviceYear>=2015&&clientOS==1) {
+            System.out.println("«Установите версию приложения для Android по ссылке»");
+        }
+        else{
+            System.out.println("Неверные данные!");
         }
 
         //3
         int year = 2021;
-        boolean isLeapYear=(((year-1584)%4==0)||((year-1584)%100==0))&&((year-1584)%100!=0);
+        boolean isLeapYear=(((year-1584)%4==0)||((year-1584)%400==0))&&((year-1584)%100!=0);
         if (isLeapYear){
             System.out.println("«"+year+" год является високосным»");
         }
